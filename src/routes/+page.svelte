@@ -36,6 +36,7 @@
         localStorage.setItem("name", username);
       }
     }
+    localStorage.removeItem("player");
   }
 </script>
 
@@ -64,12 +65,12 @@
   {/if}
 
   {#if activeTab === "newGame"}
-    <NewGame {socket} {username} bind:activeTab/>
+    <NewGame {socket} {username} bind:activeTab />
   {/if}
 
   {#if activeTab === "joinRoom"}
     <div>
-      <JoinRoom {socket} {username} bind:activeTab/>
+      <JoinRoom {socket} {username} bind:activeTab />
     </div>
   {/if}
 </div>

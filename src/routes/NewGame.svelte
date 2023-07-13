@@ -6,6 +6,7 @@
   let users = [];
   export let username = "";
   export let activeTab;
+  let loading = true;
 
   onMount(() => {
     // Check if username exists in localStorage
@@ -23,7 +24,7 @@
       const promptUsername = prompt("Please enter your Name:");
       if (promptUsername) {
         // If the user entered a username, save it in localStorage
-        username = promptUsername;
+        username = promptUsername.trim().toLowerCase();
         localStorage.setItem("name", username);
       }
     }
@@ -45,6 +46,7 @@
 
   socket.on("player", (data) => {
     localStorage.setItem("player", data);
+    loading = false;
   });
 
   function leaveRoom() {
@@ -87,7 +89,9 @@
   </svg>
   Go back
 </button>
-<TikToe {roomNumber} {socket} {users} />
+{#if !loading}
+  <TikToe {roomNumber} {socket} {users} />
+{/if}
 
 <div class="fixed bottom-4 right-4" class:hidden={!showToast}>
   <div

@@ -10,7 +10,7 @@
 
   let currentPlayer = "X";
   let squares = Array(9).fill("");
-
+  
   let currentPlayerMove = localStorage.getItem("player") === currentPlayer;
 
   socket.on("chat message", (index) => {
@@ -91,6 +91,8 @@
       showToast = false;
     }, 2000);
   }
+
+  console.log(currentPlayer, currentPlayerMove, localStorage.getItem("player"));
 </script>
 
 <div class="container mx-auto p-4">
@@ -105,6 +107,7 @@
     </ul>
   </div>
 </div>
+{currentPlayerMove}
 <div class="w-fit m-auto">
   <h1 class="text-2xl text-center mb-4">Player's Turn: {currentPlayer}</h1>
 

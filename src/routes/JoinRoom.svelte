@@ -9,6 +9,7 @@
   export let activeTab;
   let toastMsg = "";
   let showToast = false;
+  let loading = true;
 
   onMount(() => {
     // Check if username exists in localStorage
@@ -26,7 +27,7 @@
       const promptUsername = prompt("Please enter your Name:");
       if (promptUsername) {
         // If the user entered a username, save it in localStorage
-        username = promptUsername;
+        username = promptUsername.trim().toLowerCase();
         localStorage.setItem("name", username);
       }
     }
@@ -46,6 +47,7 @@
 
   socket.on("player", (data) => {
     localStorage.setItem("player", data);
+    loading = false;
   });
 
   let game = false;
@@ -58,7 +60,11 @@
   }
 
   function leaveRoom() {
-    socket.emit("leaveGroup", {id:localStorage.getItem("id"),room:roomNumber,name:localStorage.getItem('name')});
+    socket.emit("leaveGroup", {
+      id: localStorage.getItem("id"),
+      room: roomNumber,
+      name: localStorage.getItem("name"),
+    });
     activeTab = "Home";
   }
 
@@ -90,7 +96,7 @@
   </svg>
   Leave Room
 </button>
-{#if game == true}
+{#if game == true && !loading}
   <TikToe {socket} {roomNumber} {users} />
 {:else}
   <div class="flex items-center">

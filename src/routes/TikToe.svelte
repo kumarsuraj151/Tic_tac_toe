@@ -107,7 +107,7 @@
     </ul>
   </div>
 </div>
-{currentPlayerMove}
+<!-- {currentPlayerMove} -->
 <div class="w-fit m-auto">
   <h1 class="text-2xl text-center mb-4">Player's Turn: {currentPlayer}</h1>
 

@@ -1,5 +1,7 @@
+import express from "express";
 import { Server } from "socket.io";
 import http from "http";
+import { handler } from "./build/handler.js";
 import {
   addUser,
   getUser,
@@ -7,13 +9,15 @@ import {
   getUsersInRoom,
   countUser,
 } from "./users.js";
+const port = 3000;
+const app = express();
 
-const server = http.createServer();
+const server = http.createServer(app);
 
 const io = new Server(server, {
-  cors: {
-    origin: "http://localhost:5173",
-  },
+  // cors: {
+  //   origin: "http://localhost:5173",
+  // },
 });
 
 io.on("connection", (socket) => {
@@ -77,7 +81,8 @@ io.on("connection", (socket) => {
     io.emit("new game", data);
   });
 });
+app.use(handler)
 
-server.listen(3000, () => {
-  console.log("running http://localhost:3000");
+server.listen(port, () => {
+  console.log(`running http://localhost:${port}`);
 });

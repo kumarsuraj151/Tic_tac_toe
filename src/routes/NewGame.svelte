@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   export let socket;
   import TikToe from "./TikToe.svelte";
-  let roomNumber = String(Math.floor(899999 + Math.random() * 100000));
+  let roomNumber = String(Math.floor(100000 + Math.random() *899999));
   let users = [];
   export let username = "";
   export let activeTab;

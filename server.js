@@ -81,6 +81,9 @@ io.on("connection", (socket) => {
     io.emit("new game", data);
   });
 });
+app.get('/healthcheck', (req, res) => {
+    res.end('ok');
+});
 app.use(handler)
 
 server.listen(port, () => {

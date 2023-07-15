@@ -15,3 +15,29 @@ When a player makes a move, the game emits a socket event to the server, which t
 
 The server keeps track of the game state, including the positions of X and O, and determines the winner or a draw based on the game logic.
 
+## How to play
+
+Clone the repository
+
+```bash
+git clone https://github.com/kumarsuraj151/Tic_tac_toe.git
+```
+Install the necessary module
+
+```bash
+npm install
+```
+Build the production-ready version of the app
+
+```bash
+npm run build
+```
+
+Start the Game
+
+```bash
+npm run start
+```
+You are ready to play in your Browser <br>
+Thank You
+

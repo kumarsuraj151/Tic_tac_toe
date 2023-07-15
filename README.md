@@ -1,38 +1,16 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+# Tic-Tac-Toe with Svelte and Socket.IO
 
-## Creating a project
+This project is a multiplayer Tic-Tac-Toe game built using Svelte and Socket.IO. It allows two players to compete against each other in real-time, making their moves on a shared game board.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## How it Works
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The Tic-Tac-Toe game is built using the Svelte framework, which provides a reactive user interface. The game board is updated in real-time using Socket.IO, a library for enabling real-time communication between the server and clients.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+When a player start a new game,a random room assign to that player and another player can join the room using 6 digit roomId and they can play the game in realtime.
+It is also ensuring that a room can have only max 2 player, if 3 rd player is joining the same room , A toast message will show "room is full". 
 
-## Developing
+When a player makes a move, the game emits a socket event to the server, which then broadcasts the updated game state to all connected clients in that room. This ensures that both players see the same game board at all times.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The server keeps track of the game state, including the positions of X and O, and determines the winner or a draw based on the game logic.
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

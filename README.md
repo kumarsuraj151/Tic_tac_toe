@@ -1,3 +1,4 @@
+<img width="891" alt="tic-tac-toe" src="https://github.com/kumarsuraj151/Tic_tac_toe/assets/102572879/3f9b8a14-2871-4824-9bc8-e285bd5e2731">
 
 # Tic-Tac-Toe with Svelte and Socket.IO
 

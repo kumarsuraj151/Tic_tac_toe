@@ -3,7 +3,8 @@
   import NewGame from "./NewGame.svelte";
   import JoinRoom from "./JoinRoom.svelte";
   import io from "socket.io-client";
-  let socket = io.connect("http://localhost:3000");
+  // let socket = io.connect("http://localhost:3000");
+  let socket = io.connect("https://tictactoe-c6ta.onrender.com");
 
   let activeTab = "Home";
 

@@ -81,7 +81,7 @@ io.on("connection", (socket) => {
     io.emit("new game", data);
   });
 });
-app.use(handler)
+app.use(handler);
 
 server.listen(port, () => {
   console.log(`running http://localhost:${port}`);

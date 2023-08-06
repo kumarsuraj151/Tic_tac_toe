@@ -3,8 +3,9 @@
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview"
+		"build": "vite build && node ./server",
+		"preview": "vite preview",
+		"start": "node ./server"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
